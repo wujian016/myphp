@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"> 
+<script type="text/javascript" src="jquery-1.11.1.js"></script> 
+<script type="text/javascript" src="jquery.color.js"></script>
+
+<SCRIPT TYPE="text/javascript">  
+ 
+ function foo(e){
+  console.log("onclick");
+ }
+
+$(function(){
+ $("#btnjq").click(function(e){
+  $("#status").load("page2.php",function(x,y,z){
+     console.dir(x);
+     console.dir(y);
+     console.dir(z);
+  }); 
+ })
+
+ $("#btnjqs").click(function(e){
+   $.getScript("http://www.81222.com/s/WebResources/2009/Default/js/njs01.js",function(e,f,y){
+    console.dir(e);
+    console.dir(f);
+    console.dir(y);
+    //$("#status").text(jsd.version);
+    console.log(Web["Config"]. WebsiteConfig.Domain);
+   })
+ })
+
+ $("#btnjqj").click(function(e){
+   $.getJSON("order.json2?callback=getJSONP").done(
+function(e,f,y){
+    console.dir(e);
+    console.dir(f);
+    console.dir(y);
+    //$("#status").text(jsd.version);
+    console.log(e.name);
+   }
+    ).done(function(x,y){
+      console.dir(x);
+      console.dir(y);
+    }).fail(
+      function(x,y){
+        console.dir(x);
+        console.dir(y); 
+      }
+    ).always(
+      function(x,y){
+        console.dir(x);
+        console.dir(y);
+      }
+    )
+ })
+
+});
+ 
+$(function(){
+  console.dir($("div").color("blue"));
+})
+
+</SCRIPT>
+
+<style type="text/css">
+  #linklist{
+
+    color:blue;
+    font-weight: bold;
+  }
+
+  #d{
+    color:red;
+  }
+
+</style>
+ 
+</head>
+<body>
+		<div>
+      <div id="d">
+        <h2>ha ha ha</h2>
+			<span>This is my test</span>
+      <p id="log">this is log</p>
+    </div>
+			<input type="button" id="btnSend"  value="send"></input>		
+
+            <input type="button" id="btnJSONP" value="JSONP"></input>
+
+            <input type="button" id="btnjq" value="jquery"></input>
+
+            <input type="password" id="password" />
+            <input type="button" id="btnjqs" value="ajaxGetscript"></input>
+            <input type="button" id="btnjqj" value="ajaxGetjson"></input>
+
+<select>
+  <option name="address" value="cd">cheng du</option>
+  <option name="address" value="sh">shanghai</option>
+  <option name="address" value="sz">sheng zhen</option>
+</select>
+
+            <h2>THis is second h2</h2>
+		</div>
+	 
+   <div>
+    <div id="status"></div>
+<!-- <img id="ig" src="http://www.81222.com/s/Images/p800/12/069/12-069-001_1.jpg?v=538668549"> -->
+   </div>
+     <div>
+
+<div>a<a href="http://www.163.com">163.com</a></div>
+<div>
+<span>test</span>
+  <a href="http://www.sohu.com" title="sohu">sohu.com</a></div>
+<div><a href="http://www.81222.com">81222.com</a></div>
+<div><a href="http://192.168.0.118/myphp/book.php">local.book</a></div>
+<div><a href="http://192.168.0.118/myphp/book2.php">error.local.book2</a></div>
+<div id="ml"><p>dd</p><a href="http://www.qttc.net/201304303.html">qttc</a>
+<a href="http://www.tianya.net/201304303.html">tiyan</a>
+<div id="dl"><span>mytest</span></div>
+<a href="#">dand</a>
+</div>
+     </div>
+
+<div id="msg"></div>
+
+
+</body>
+</html>
