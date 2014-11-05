@@ -1,5 +1,5 @@
 
 var jsd = {};
-jsd.version = "1.283.3";
-jsd.name = "jquery";
+jsd.version = "1.283.3"; 
 jsd.sex = "m";
+jsd.max = 1292.3;
