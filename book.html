@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+ <SCRIPT TYPE="text/javascript" src="jscode/17.01.whenReady.js"></SCRIPT>
+<script type="text/javascript" src="jscode/18.13.linkdetails.js"></script>
+<script type="text/javascript" src="jscode/18.14.getJSONP.js"></script>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+<!-- <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> -->
+<!-- <script src="jquery-1.11.1.js"></script> -->
+
+<SCRIPT TYPE="text/javascript">  
+ 
+ function postMessage(msg) {
+    var request = new XMLHttpRequest();      // New request
+    request.open("POST", "book.php");        // POST to a server-side script
+    // Send the message, in plain-text, as the request body
+    request.setRequestHeader("Content-Type", // Request body will be plain text
+                             "text/plain;charset=UTF-8");
+    request.send(msg);                       // Send msg as the request body
+    // The request is done. We ignore any response or any error.    
+}
+
+function encodeFormData(data) {
+    if (!data) return "";    // Always return a string
+    var pairs = [];          // To hold name=value pairs
+    for(var name in data) {                                  // For each name
+        if (!data.hasOwnProperty(name)) continue;            // Skip inherited
+        if (typeof data[name] === "function") continue;      // Skip methods
+        var value = data[name].toString();                   // Value as string
+        name = encodeURIComponent(name.replace(" ", "+"));   // Encode name
+        value = encodeURIComponent(value.replace(" ", "+")); // Encode value
+        pairs.push(name + "=" + value);   // Remember name=value pair
+    }
+    return pairs.join('&'); // Return joined pairs separated with &
+}
+
+function postData(url, data, callback) {
+    var request = new XMLHttpRequest();            
+    request.open("POST", url);                    // POST to the specified url
+    request.onreadystatechange = function() {     // Simple event handler
+        if (request.readyState === 4 && callback) // When response is complete
+            callback(request);                    // call the callback.
+    };
+    request.setRequestHeader("Content-Type",      // Set Content-Type
+                             "application/x-www-form-urlencoded");
+    request.send(encodeFormData(data));           // Send form-encoded data
+}
+
+function postJSON(url, data, callback) {
+    var request = new XMLHttpRequest();            
+    request.open("POST", url);                    // POST to the specified url
+    request.onreadystatechange = function() {     // Simple event handler
+        if (request.readyState === 4 && callback) // When response is complete
+            callback(request);                    // call the callback.
+    };
+    request.setRequestHeader("Content-Type", "application/json");
+    request.send(JSON.stringify(data));
+}
+
+function postQuery(url, what, where, radius, callback) {
+    var request = new XMLHttpRequest();            
+    request.open("POST", url);                  // POST to the specified url
+    request.onreadystatechange = function() {   // Simple event handler
+        if (request.readyState === 4 && callback) callback(request);
+    };
+
+    // Create an XML document with root element <query>
+    var doc = document.implementation.createDocument("", "query", null);
+    var query = doc.documentElement;            // The <query> element
+    var find = doc.createElement("find");       // Create a <find> element
+    query.appendChild(find);                    // And add it to the <query>
+    find.setAttribute("zipcode", where);        // Set attributes on <find>
+    find.setAttribute("radius", radius);
+    find.appendChild(doc.createTextNode(what)); // And set content of <find>
+
+    // Now send the XML-encoded data to the server.
+    // Note that the Content-Type will be automatically set.
+    request.send(doc); 
+}
+
+ whenReady(
+ 	function(){
+ 		var btnSend = document.getElementById("btnSend");
+ 		btnSend.addEventListener("click",function(){
+ 			var url = "book.php";
+ 			var data = {isbn:"1283838383838",author:"wujian",title:"javascript css",price:88.9};
+ 			function setBody(x){
+ 				var div = document.createElement("div");
+ 				div.innerHTML = x.responseText;
+ 				document.body.appendChild(div);
+ 			}
+ 			postData(url,data,setBody);
+ 		}, false);
+ 	});
+
+ whenReady(function() {                        // Run when the document is ready
+    var elts = document.getElementsByTagName("input"); // All input elements
+    for(var i = 0; i < elts.length; i++) {             // Loop through them
+        var input = elts[i];
+        if (input.type !== "file") continue;  // Skip all but file upload elts
+        var url = input.getAttribute("data-uploadto"); // Get upload URL
+        if (!url) continue;                   // Skip any without a url
+
+        input.addEventListener("change", function() {  // When user selects file
+            var file = this.files[0];         // Assume a single file selection
+            if (!file) return;                // If no file, do nothing
+            var xhr = new XMLHttpRequest();   // Create a new request
+            xhr.open("POST", url);            // POST to the URL
+            xhr.send(file);                   // Send the file as body
+        }, false);
+    }
+});
+
+whenReady(function(){
+  function handleResponse(response){
+     console.log(response.name);
+     console.log(response.year);
+   }
+   var btn = document.getElementById("btnJSONP");
+   btn.addEventListener("click",function()
+   {
+    getJSONP("jsd.js", handleResponse);
+   },false)
+
+   btn = $("#btnjq").click(function(){
+    $("<div>").append('Some text').appendTo('body');
+   })
+   // $("div").prepend($() 'h2')
+})
+
+</SCRIPT>
+
+<style type="text/css">
+  #linklist{
+
+    color:blue;
+    font-weight: bold;
+  }
+
+</style>
+ 
+</head>
+<body>
+		<div>
+      <div id="d">
+        <h2>ha ha ha</h2>
+			<span>This is my test</span>
+      <p id="log">this is log</p>
+    </div>
+			<input type="button" id="btnSend" value="send"></input>		
+
+            <input type="button" id="btnJSONP" value="JSONP"></input>
+
+            <input type="button" id="btnjq" value="jquery"></input>
+            <h2>THis is second h2</h2>
+		</div>
+	 
+     <div>
+
+<div>a<a href="http://www.163.com">163.com</a></div>
+<div><a href="http://www.sohu.com" title="sohu">sohu.com</a></div>
+<div><a href="http://www.81222.com">81222.com</a></div>
+<div><a href="http://192.168.0.118/myphp/book.php">local.book</a></div>
+<div><a href="http://192.168.0.118/myphp/book2.php">error.local.book2</a></div>
+<div><a href="http://www.qttc.net/201304303.html">qttc</a></div>
+     </div>
+<div> 
+   <form id="fid1" name="address" method="post">
+		<input type="text" name="city"></input>
+		<input type="text" name="state"></input>
+		<input type="text" name="shop"></input>
+		<fieldset>
+			<legend>Shippng method</legend>
+			<label for=""><input type="radio" name="method" value="1st">first daty</label>
+			<label for=""><input type="radio" defaultChecked="true" name="method" value="2day">two day</label>
+			<label for=""><input type="radio" name="method" value="overnite">three day</label>
+		</fieldset>
+		<fieldset>
+			<legend>Shippng method</legend>
+			<label for=""><input type="checkbox" name="chkmethod" value="1st">first daty</label>
+			<label for=""><input type="checkbox" defaultChecked name="chkmethod" value="2day">two day</label>
+			<label for=""><input type="checkbox" name="chkmethod" value="overnite">three day</label>
+		</fieldset>
+		<button id="btn">
+			<mark>button</mark>
+		</button>
+
+<input type="file" data-uploadto="book.php"></input>
+
+		<select name="selday" multiple>
+			<option value="1day">1 day</option>
+			<option value="2day">2 day</option>
+			<option value="3day">3 day</option>
+			<option value="4day">4 day</option>
+		</select>
+
+		<input type="submit"></input>
+   </form>
+    <form id="fid2" name="fm">
+
+   </form>
+</div> 
+
+
+
+</body>
+</html>

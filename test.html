@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+<style  bod="ma" id="style1">
+ .lt{
+ 	j/*float:left;*/
+ }
+ table{
+
+ 	table-layout: fixed;
+ 	border: 1px solid blue;
+ 	border-collapse:normal;
+ }
+ .attent{
+
+ 	background-color: yellow;
+ 	font-weight: bold;
+ 	border:1px solid red;
+ }
+</style>
+<script type="text/javascript" src="js/my.js"></script>
+<script type="text/javascript" src="jscode/06.03.extend2.js"></script>
+<script type="text/javascript" src="jscode/09.06.Set1.js"></script>
+
+<script type="text/javascript" src="jscode/15.04.sortrows.js"></script>
+<script type="text/javascript" src="jscode/15.10.ElementStream.js"></script>
+
+<script type="text/javascript" src="jscode/15.08.getScrollOffsets.js"></script>
+<script type="text/javascript" src="jscode/17.02.Drag.js"></script>
+
+<SCRIPT TYPE="text/javascript">
+// function handler(x){
+// alert(document.readyState);
+
+// }
+//document.addEventListener("DOMContentLoaded",handler,false);
+
+	function onLoad(f){
+		if(window.onload)
+		var fr = window.onload;
+		window.onload = function(){
+		    fr();
+		    f();
+		} 
+	}
+</SCRIPT>
+
+<!-- <script type="text/javascript" src="jscode/15.07.TOC.js"></script> -->
+
+<script type="text/javascript">
+    onLoad(function(){
+	var table = document.getElementById("mytable");
+	makeSortable(table);
+	//document.getElementById("f").window.designMode = "on";
+	//document.designMode = "on";
+	//
+
+	function getText(url, callback) {
+	    var request = new XMLHttpRequest();         // Create new request
+	    request.open("GET", url);    
+	    request.overrideMimeType("application/json")
+	                   // Specify URL to fetch
+	    request.onreadystatechange = function() {   // Define event listener
+	        // If the request is compete and was successful
+	        if (request.readyState === 4 && request.status === 200) {
+	            var type = request.getResponseHeader("Content-Type");
+	            //if (!type || type.match(/^text/))            // Make sure response is text
+	                callback(request.responseText); // Pass it to callback
+	        }
+	    };
+	    request.send(null);                         // Send the request now
+	}
+
+	function querySql(){
+		getText("order.json",function(r){
+			console.log(r);
+			var o = JSON.parse(r);
+			console.log(o.name)
+
+		})
+	}
+	var b = document.getElementById("b");
+	b.addEventListener("click",querySql,false);
+});
+</script>
+</head>
+<body>
+	<div >
+		<h1 class="lt">和hisd asdisadf idad afaf </h1>
+	</div>
+
+	<div id="edidor" contenteditable>
+		THis is my false,
+		are youe!
+	</div>
+	<div>
+<a onclick="alert('q');//alert('mss');">madiadsl</a>
+		</div>
+
+		<div>
+			<span id="d">This is my test</span>
+		</div>
+		<div>
+
+			<input type="email" id="e"></input>
+			<button id="b">test</button>
+
+			<input id="t" type="text"></input>
+			<input id="fl" type="file"></input>
+
+<script id="ms" type="ddmd">
+
+This is a good man.
+dmand mantid ad,tdd
+
+</script>
+
+		</div>
+
+		<div style="position:absolute;left:100px;top:200px;width:250px;height:200px;background-color:blue;border:solid black;">
+			<div style="background-color:gray;border-bottom:datted black;padding:3px;font-family:sans-serif;font-weight:bold;" onmousedown="drag(this.parentNode,event);">
+			</div>
+		</div>
+
+<div>
+   <iframe id="f" name="fn" src="" width="500" height="300"></iframe>
+   <form id="fid1" name="address" method="post">
+		<input type="text" name="city"></input>
+		<input type="text" name="state"></input>
+		<input type="text" name="shop"></input>
+		<fieldset>
+			<legend>Shippng method</legend>
+			<label for=""><input type="radio" name="method" value="1st">first daty</label>
+			<label for=""><input type="radio" defaultChecked="true" name="method" value="2day">two day</label>
+			<label for=""><input type="radio" name="method" value="overnite">three day</label>
+		</fieldset>
+		<fieldset>
+			<legend>Shippng method</legend>
+			<label for=""><input type="checkbox" name="chkmethod" value="1st">first daty</label>
+			<label for=""><input type="checkbox" defaultChecked name="chkmethod" value="2day">two day</label>
+			<label for=""><input type="checkbox" name="chkmethod" value="overnite">three day</label>
+		</fieldset>
+		<button id="btn">
+			<mark>button</mark>
+		</button>
+
+
+		<select name="selday" multiple>
+			<option value="1day">1 day</option>
+			<option value="2day">2 day</option>
+			<option value="3day">3 day</option>
+			<option value="4day">4 day</option>
+		</select>
+
+		<input type="submit"></input>
+   </form>
+    <form id="fid2" name="fm">
+
+   </form>
+</div>
+<input type="text" name="sheel"></input>
+<table id="mytable">
+	<thead>
+		<tr>
+			<th>name</th>
+			<th>number</th>
+			<th>date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>wujian</td>
+			<td>820</td>
+			<td>2009-9-8</td>
+		</tr>
+		<tr>
+			<td>alex</td>
+			<td>320</td>
+			<td>2013-08-01</td>
+		</tr>
+		<tr>
+			<td>blue</td>
+			<td>1200</td>
+			<td>2014-10-13</td>
+		</tr>
+	</tbody>
+
+<div id="info" style="position:relative"  class="file attent">
+	<h1>d8adf,</h1>
+	<h2 id="meb" style="position:absolute;top:21px;left:30px;">this i s a,d </h2>
+
+
+	<h2>sina.com is very site</h2>
+
+	<h3>ma ma de</h3>
+
+</div>
+
+</table>
+
+</body>
+</html>

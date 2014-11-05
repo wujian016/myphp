@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>Book-O-Rama Upload file</title>
+</head>
+<body>
+	<h1>Book-O-Rama Upload file</h1>
+	<form action="upload.php" method="post" enctype="multipart/form-data">
+		<div> 
+			<input type="hidden" name="MAX_FILE_SIZE" value="10000000"/>
+			<label for="userfile">upload a file:</label>
+		<input name="userfile" id="userfile" type="file"/>
+		<input type="submit" value="Send file"/>
+	</div>
+</body>
+</html>
