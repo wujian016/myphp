@@ -2,10 +2,10 @@ My PHP Test Project
 ==========================
 This is my fisrt php test Project
 
-Descript
+Description
 ===========================
 
-Sometimes we need one project to test my project,
+Sometimes we need one location to test my project,
 mmdie
 
 Memo 
