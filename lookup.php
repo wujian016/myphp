@@ -23,7 +23,7 @@ function testfun(){
 	$myvars = "rosce wu ma<br/>";
 } 
 echo '<br/>*******<br/>';
-
+echo '<br/>';
 print_r($_GET); 
 echo '<br/>*******<br/>';
 echo '<br/>*******<br/>';
