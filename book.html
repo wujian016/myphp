@@ -23,6 +23,7 @@
 }
 
 function encodeFormData(data) {
+  var s = 1;
     if (!data) return "";    // Always return a string
     var pairs = [];          // To hold name=value pairs
     for(var name in data) {                                  // For each name
