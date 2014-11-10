@@ -27,6 +27,7 @@ echo '<br/>';
 print_r($_GET); 
 echo '<br/>*******<br/>';
 echo '<br/>*******<br/>';
+echo '<br/>c9<br/>';
 
 // $no_unset = array( 'GLOBALS', '_GET', '_POST', '_COOKIE', '_REQUEST', '_SERVER', '_ENV', '_FILES', 'table_prefix' );
 
