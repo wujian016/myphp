@@ -1,0 +1,6 @@
+[submodule "mypro"]
+	path = mypro
+	url = git@github.com:wujian016/myproject.git
+[submodule "myTest"]
+	path = myTest
+	url = git@github.com:wujian016/getMytest.git
