@@ -7,6 +7,7 @@ getJSONP.cb0(
   man:"good",
   num:200192,
   findname:"sex",
-  man:"ddd"
+  man:"ddd",
+  desc:"c6"
 } 
 )
