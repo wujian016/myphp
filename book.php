@@ -22,6 +22,7 @@
 
  echo '<ul><li>'. $isbn .'</li>';
  echo '<li>'. $author .'</li>';
+ echo '<li>'. $author .'</li>';
  echo '<li>'. $title .'</li>';
  echo '<li>'. $price .'</li></ul>';
 
