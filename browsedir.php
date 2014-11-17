@@ -14,7 +14,7 @@
 
 		while (false !== ($file = $dir->read())) {
 			if($file != "." && $file != ".."){
-				echo "<li>". $file ."</li>";
+				echo "<li>". $file ."</li>"; //change in c6
 			}
 		}
 
