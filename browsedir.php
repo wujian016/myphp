@@ -22,6 +22,8 @@
 
 		$dir->close();
 
+		//change in c10
+
 		$files = scandir($current_dir,1);
 
 echo "<p>Listing 2:</p><ul>";
