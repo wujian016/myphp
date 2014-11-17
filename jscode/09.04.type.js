@@ -5,7 +5,7 @@
  *    (Note that some implementations identify regexps as functions.)
  *   -If the class of o is anything other than "Object", return that.
  *   -If o has a constructor and that constructor has a name, return it.
- *   -Otherwise, just return "Object".
+ *   -Otherwise, just return "Object". //change in c11
  **/
 function type(o) {
     var t, c, n;  // type, class, name
