@@ -20,7 +20,7 @@ else{
 //$myvars = "mayf<br/>";
 function testfun(){
 	global $myvars;
-	$myvars = "rosce wu ma<br/>";
+	$myvars = "rosce wu ma<br/>"; //change in c9
 } 
 echo '<br/>*******<br/>';
 echo '<br/>';
