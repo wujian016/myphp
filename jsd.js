@@ -8,6 +8,7 @@ getJSONP.cb0(
   num:200192,
   findname:"sex",
   man:"ddd",
-  desc:"c6"
+  desc:"c6",
+  sman: "change in c8"
 } 
 )
