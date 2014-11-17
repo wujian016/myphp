@@ -73,7 +73,8 @@ Order.prototype.addNum = function(num){
 function Order(amo,num){
   this.amount = amo;
   this.number = num;
-  this.addNum(10);
+  this.addNum(10);//modify by wujian
+  this.number = num + 1;
 }
 
 Order.prototype.getAmount = function(){return this.amount;}
