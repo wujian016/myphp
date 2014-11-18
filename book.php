@@ -21,18 +21,15 @@
   }
 
  echo '<ul><li>'. $isbn .'</li>';
- echo '<li>'. $author .'</li>';
-<<<<<<< HEAD
- echo '<li>'. $author .'</li>';
-=======
->>>>>>> f92a5a75e07a1b1ccf3a041276bda3d3ed6caec7
+ echo '<li>'. $author .'</li>'; 
+ echo '<li>'. $author .'</li>'; 
  echo '<li>'. $title .'</li>';
  echo '<li>'. $price .'</li></ul>';
 
 
   /* $query = "insert into books values ('". $isbn ."','" .$author."','" .$title ."','" .$price ."')";
   
-
+ //c11
 
    $result = $db->query($query);
   // $result = mysqli_query($db, $query); 
