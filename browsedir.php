@@ -14,10 +14,10 @@
 
 		while (false !== ($file = $dir->read())) {
 			if($file != "." && $file != ".."){
-				echo "<li>". $file ."</li>"; //change in c6
+				echo "<li>". $file ."</li>"; 
 			}
 		}
-
+		//good change 8
 		echo "</ul>";
 
 		$dir->close();
